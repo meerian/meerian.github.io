@@ -1,4 +1,5 @@
 import { Component, NgModule } from '@angular/core';
+import {CommonModule} from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { CarouselModule } from 'primeng/carousel';
 import { TagModule } from 'primeng/tag';
@@ -18,7 +19,7 @@ import { ButtonModule } from 'primeng/button';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CarouselModule, TagModule, ButtonModule],
+  imports: [RouterOutlet, CarouselModule, TagModule, ButtonModule, CommonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
@@ -46,12 +47,17 @@ throw new Error('Method not implemented.');
     link: "https://github.com/meerian/meerian.github.io",
     img: "/assets/website.svg"
   },  {
-    name: "Github Page",
-    description: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.",
+    name: "SIASA",
+    description: "SIASA is a desktop application that enables student financial advisors to quickly and easily keep track of their contacts and financial plans sold. Built using Java.",
     link: "https://github.com/meerian",
-    img: "/assets/psaccess.svg"
   },
 
   ];
+
+  getAngularLink() {
+    window.open("https://angular.io/");
+  }
+
+
 responsiveOptions: any;
 }

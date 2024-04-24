@@ -146,6 +146,11 @@
     fill: var(--gray-900);
   }
 
+  .techButton:hover {
+  transform: scale(1.1);
+  background-color:var(--theme-lgreen);
+}
+
   #container {
     height: 100%;
     border-collapse: collapse;
@@ -257,14 +262,21 @@
   <div style="height: 100%; margin-top: 5%;">
     <h1 style="color: var(--theme-grey); font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-size: 3rem; text-align: center; margin-bottom: 0.5rem;">My Projects:</h1>
     <div style="width: 50%; margin:auto">
-      <p-carousel [value]="projects" [numVisible]="3" [numScroll]="1" [circular]="false">
+      <p-carousel [value]="projects" [numVisible]="2" [numScroll]="1" [circular]="true">
         <ng-template let-project pTemplate="card">
             <div class="card">
               <table id="container">
                 <tr>
                     <td valign="top" style="text-align: center; align-content: center;">
-                      <!-- <h4 style="font-family: Helvetica, sans-serif; font-size: 3rem; height: fit-content; margin-bottom: 5%; margin-top: 5%;">{{ project.name }}</h4> -->
-                      <div style="margin-top: 5%;"><img src={{project.img}} alt="PSAccess logo" style="width:300px;height:200px;"></div>
+                      <ng-container *ngIf="project.img; else elseBlock">
+                        <div style="margin-top: 5%;"><img src={{project.img}} alt={{project.name}} style="width: 300px;height: 200px;"></div>
+                      </ng-container>
+                      <ng-template #elseBlock>
+                        <div style="height: 200px; margin: auto;">
+                          <h4 style="font-family: Helvetica, sans-serif; font-size: 3rem; margin:auto; padding-top: 25%;">{{ project.name }}</h4>
+                        </div>
+                        
+                      </ng-template>
                       <div style="font-family: Arial, Helvetica, sans-serif; font-size: 1.3rem; height: fit-content; color:var(--theme-grey);">{{ project.description }}</div>
                     </td>
                 </tr>
@@ -305,10 +317,10 @@
     <h1 style="color: var(--theme-grey); font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-size: 3rem; text-align: center; margin-bottom: 0.5rem;">Teckstack:</h1>
     <div style="width:50%; margin:auto;">
       <div >
-        <p-button [outlined]="true">
+        <button pButton type="button" [outlined]="true" [raised]="true" text="true" (click)="getAngularLink()" class="techButton">
           <div style="margin-top: 5%;"><img src="/assets/angular.svg" alt="Angular logo" style="width:100px;height:100px;"></div>
           <div style="color: var(--theme-grey); font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-size: 1.5rem;"> Angular </div>
-        </p-button>
+        </button>
       </div>
     </div>
 
