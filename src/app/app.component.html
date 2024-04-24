@@ -146,6 +146,11 @@
     fill: var(--gray-900);
   }
 
+  #container {
+    height: 100%;
+    border-collapse: collapse;
+}
+
   @media screen and (max-width: 650px) {
     .content {
       flex-direction: column;
@@ -249,40 +254,64 @@
       </a>
     </div>
   </div>
-  <div class="divider" role="separator" aria-label="Divider"></div>
-  <div class="projects" style="height: 100%;">
-    <p-carousel [value]="projects" [numVisible]="3" [numScroll]="3" [circular]="false" [responsiveOptions]="responsiveOptions">
-      <ng-template let-project pTemplate="item">
-          <div class="card">
-              <div class="flex" style="text-align: center; align-content: center;">
-                  <h4 style="font-family: Helvetica, sans-serif; font-size: 3rem; height: fit-content; margin-bottom: 5%; margin-top: 5%;">{{ project.name }}</h4>
-                  <span style="font-family: Helvetica, sans-serif; font-size: 1.3rem; margin-top: 10px; height: fit-content; color:var(--theme-grey)">{{ project.description }}</span>
-                  <div style="margin:auto; display: flex; justify-content: space-around; padding-top: 1rem;">
-                    <a
-                    class="pill"
-                    [href]=project.link
-                    target="_blank"
-                    rel="noopener"
-                    style="width: fit-content; align-self: center;"
-                  >
-                    <span>Link to Project</span>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      height="14"
-                      viewBox="0 -960 960 960"
-                      width="14"
-                      fill="currentColor"
-                    >
-                      <path
-                        d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"
-                      />
-                    </svg>
-                  </a>
-                  </div>
-              </div>
-          </div>
-      </ng-template>
-  </p-carousel>
+  <div style="height: 100%; margin-top: 5%;">
+    <h1 style="color: var(--theme-grey); font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-size: 3rem; text-align: center; margin-bottom: 0.5rem;">My Projects:</h1>
+    <div style="width: 50%; margin:auto">
+      <p-carousel [value]="projects" [numVisible]="3" [numScroll]="1" [circular]="false">
+        <ng-template let-project pTemplate="card">
+            <div class="card">
+              <table id="container">
+                <tr>
+                    <td valign="top" style="text-align: center; align-content: center;">
+                      <!-- <h4 style="font-family: Helvetica, sans-serif; font-size: 3rem; height: fit-content; margin-bottom: 5%; margin-top: 5%;">{{ project.name }}</h4> -->
+                      <div style="margin-top: 5%;"><img src={{project.img}} alt="PSAccess logo" style="width:300px;height:200px;"></div>
+                      <div style="font-family: Arial, Helvetica, sans-serif; font-size: 1.3rem; height: fit-content; color:var(--theme-grey);">{{ project.description }}</div>
+                    </td>
+                </tr>
+                <tr>
+                    <td valign="bottom">
+                      <div style="margin-bottom: 5%; display: flex; justify-content: space-around; padding-top: 1rem;">
+                        <a
+                        class="pill"
+                        [href]=project.link
+                        target="_blank"
+                        rel="noopener"
+                        style="width: fit-content; align-self: center;"
+                      >
+                        <span>Link to Project</span>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          height="14"
+                          viewBox="0 -960 960 960"
+                          width="14"
+                          fill="currentColor"
+                          style="padding-left: 0.5rem;"
+                        >
+                          <path
+                            d="M200-120q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h280v80H200v560h560v-280h80v280q0 33-23.5 56.5T760-120H200Zm188-212-56-56 372-372H560v-80h280v280h-80v-144L388-332Z"
+                          />
+                        </svg>
+                      </a>
+                      </div>
+                    </td>
+                </tr>
+              </table>
+            </div>
+        </ng-template>
+    </p-carousel>
+    </div>
+  </div>
+  <div>
+    <h1 style="color: var(--theme-grey); font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-size: 3rem; text-align: center; margin-bottom: 0.5rem;">Teckstack:</h1>
+    <div style="width:50%; margin:auto;">
+      <div >
+        <p-button [outlined]="true">
+          <div style="margin-top: 5%;"><img src="/assets/angular.svg" alt="Angular logo" style="width:100px;height:100px;"></div>
+          <div style="color: var(--theme-grey); font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; font-size: 1.5rem;"> Angular </div>
+        </p-button>
+      </div>
+    </div>
+
   </div>
   <div class="right-side">
     <div class="pill-group">
@@ -317,14 +346,4 @@
 
   </div>
 </main>
-
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * The content above * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * is only a placeholder * * * * * * * * * * * -->
-<!-- * * * * * * * * * * and can be replaced.  * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
-
-
 <router-outlet />
