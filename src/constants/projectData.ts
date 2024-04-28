@@ -6,16 +6,18 @@ export const projectData: any = [
       img: "/assets/psaccess.svg"
     },
     {
-      name: "Itch.io Page",
-      description: "My main Itch.io page where I upload the games I have created using Unity, Javascript and GameMaker Studios.",
-      link: "https://meerian.itch.io/",
-      img: "/assets/itchio.svg"
-    },  {
       name: "Meerian.vip",
       description: "Source code for this website. Built using Angular, PrimeNG and Typescript.",
       link: "https://github.com/meerian/meerian.github.io",
       img: "/assets/website.svg"
-    },  {
+    },
+    {
+      name: "DriveSafe",
+      description: "A mobile application made for the hackathon CodeSprint 2021. Built using Kotlin and Android SDK.",
+      link: "https://github.com/meerian/mlkk-drivesafe/tree/main",
+      img: "/assets/drivesafe.png"
+    },    
+    {
       name: "SIASA",
       description: "SIASA is a desktop application that enables student financial advisors to quickly and easily keep track of their contacts and financial plans sold. Built using Java.",
       link: "https://github.com/meerian",

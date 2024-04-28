@@ -6,17 +6,7 @@ import { TagModule } from 'primeng/tag';
 import { ButtonModule } from 'primeng/button';
 import { projectData } from '../constants/projectData';
 import { techstackData } from '../constants/techstackData';
-
-// @NgModule({
-//   declarations: [
-//     AppComponent
-//   ],
-//   imports: [
-//     CarouselModule
-//   ],
-//   providers: [],
-//   bootstrap: [AppComponent]
-// })
+import { gamesData } from '../constants/gamesData';
 
 @Component({
   selector: 'app-root',
@@ -32,8 +22,8 @@ throw new Error('Method not implemented.');
 }
   title = 'my-app';
   projects = projectData;
-
   techstacks = techstackData;
+  games = gamesData;
 
   openLink(link: string) {
     window.open(link);
