@@ -4,7 +4,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 ## Setup and Building
 1. Run `npm install`.
-1. Run `ng add angular-cli-ghpages`.
+1. Run `ng add angular-cli-ghpages` if missing.
 1. Run `ng deploy --base-href=https://meerian.com/` to build and deploy to `gh-pages` branch for use.
 
 ## Development server
