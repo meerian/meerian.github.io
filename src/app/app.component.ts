@@ -1,5 +1,5 @@
 import { Component, NgModule } from '@angular/core';
-import {CommonModule} from '@angular/common';
+//import {CommonModule} from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import { CarouselModule } from 'primeng/carousel';
 import { TagModule } from 'primeng/tag';
@@ -11,7 +11,7 @@ import { gamesData } from '../constants/gamesData';
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CarouselModule, TagModule, ButtonModule, CommonModule],
+  imports: [RouterOutlet, CarouselModule, TagModule, ButtonModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
